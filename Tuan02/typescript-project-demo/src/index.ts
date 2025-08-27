@@ -75,16 +75,31 @@ const simulateTaskSimple = (time: number): Promise<string> => {
 
 // 7. Use Promise.race() to return whichever Promise resolves first.
 
-Promise.race([
-  simulateTaskSimple(1000),
-    simulateTaskSimple(2000),
-    simulateTaskSimple(1500)
-]).then((result) => {  
-    console.log("First task completed:", result);
-    }
-);
+// Promise.race([
+//   simulateTaskSimple(1000),
+//     simulateTaskSimple(2000),
+//     simulateTaskSimple(1500)
+// ]).then((result) => {  
+//     console.log("First task completed:", result);
+//     }
+// );
 
 // 8. Create a Promise chain: square the number 2, then double it, then add 5.
+
+const promiseChain = Promise.resolve(2)
+    .then((num) => num * num) 
+    .then((num) => num * 2)  
+    .then((num) => num + 5);  
+// promiseChain.then((result) => console.log("Final result of promise chain:", result));
+
 // 9. Write a Promise that reads an array after 1 second and filters even numbers.
+
+const readAndFilterArray = new Promise<number[]>((resolve) => {
+  setTimeout(() => resolve([1, 2, 3, 4, 5, 6]), 1000);
+});
+readAndFilterArray
+  .then((arr) => arr.filter((num) => num % 2 === 0))
+  .then((evenNumbers) => console.log("Even numbers:", evenNumbers));
+
 // 10. Use .finally() to log "Done" when a Promise finishes (success or failure).
 
