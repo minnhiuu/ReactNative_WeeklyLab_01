@@ -24,3 +24,5 @@ export const runTasksSequentially = async () => {
 runTasksSequentially().then((results) => {
     console.log("Sequential Tasks Results:", results);
 });
+
+console.log("hehe")
