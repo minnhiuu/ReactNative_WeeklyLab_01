@@ -1,0 +1,29 @@
+{
+  "name": "typescript-promises-async-fetch",
+  "version": "1.0.0",
+  "description": "A TypeScript project to implement exercises related to Promises, Async/Await, and Fetch API.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "typescript",
+    "promises",
+    "async",
+    "fetch",
+    "api"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "jest": "^27.0.6",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.7"
+  }
+}
