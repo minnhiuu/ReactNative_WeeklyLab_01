@@ -21,8 +21,25 @@ export const runTasksSequentially = async () => {
     return [task1, task2];
 };
 
-runTasksSequentially().then((results) => {
-    console.log("Sequential Tasks Results:", results);
+// runTasksSequentially().then((results) => {
+//     console.log("Sequential Tasks Results:", results);
+// });
+
+// 3. Write a function that rejects a Promise with the error "Something went wrong" after 1
+// second.
+
+const errorPromise = new Promise((_, reject) => {
+  setTimeout(() => reject(new Error("Something went wrong")), 1000);
 });
 
-console.log("hehe")
+errorPromise.catch((error) => console.error(error.message));
+
+// 4. Use .then() and .catch() to handle a Promise that returns a random number.
+// 5. Create a function simulateTask(time) that returns a Promise resolving with "Task
+// done" after time ms.
+// 6. Use Promise.all() to run 3 simulated Promises in parallel and print the result.
+// 7. Use Promise.race() to return whichever Promise resolves first.
+// 8. Create a Promise chain: square the number 2, then double it, then add 5.
+// 9. Write a Promise that reads an array after 1 second and filters even numbers.
+// 10. Use .finally() to log "Done" when a Promise finishes (success or failure).
+
