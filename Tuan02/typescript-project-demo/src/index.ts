@@ -36,22 +36,31 @@ export const runTasksSequentially = async () => {
 
 // 4. Use .then() and .catch() to handle a Promise tDhat returns a random number.
 
-const randomNumber = new Promise<number>((resolve, reject) => {
-  const num = Math.random();
-  if (num >= 0) {
-    resolve(num);
-  } else {
-    reject(new Error("Failed to generate random number"));
-  }
-});
+// const randomNumber = new Promise<number>((resolve, reject) => {
+//   const num = Math.random();
+//   if (num >= 0) {
+//     resolve(num);
+//   } else {
+//     reject(new Error("Failed to generate random number"));
+//   }
+// });
 
-randomNumber
-  .then((num) => console.log("Random number:", num))
-  .catch((err) => console.error("Error:", err.message));
+// randomNumber
+//   .then((num) => console.log("Random number:", num))
+//   .catch((err) => console.error("Error:", err.message));
 
 
 // 5. Create a function simulateTask(time) that returns a Promise resolving with "Task
 // done" after time ms.
+
+const simulateTaskSimple = (time: number): Promise<string> => {
+  return new Promise((resolve) => { 
+    setTimeout(() => resolve("Task done"), time); 
+  });
+}   
+simulateTaskSimple(1500).then((message) => console.log(message));
+
+
 // 6. Use Promise.all() to run 3 simulated Promises in parallel and print the result.
 // 7. Use Promise.race() to return whichever Promise resolves first.
 // 8. Create a Promise chain: square the number 2, then double it, then add 5.
