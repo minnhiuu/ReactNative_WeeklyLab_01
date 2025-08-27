@@ -145,18 +145,46 @@ const readAndFilterArray = new Promise<number[]>((resolve) => {
 
 // 15. Call multiple async functions sequentially using await.
 
-const runTasksInParallel = async () => {
-    const [task1, task2] = await Promise.all([
-        simulateTask("Parallel Task 1", 1000),
-        simulateTask("Parallel Task 2", 500)
-    ]);
-    return [task1, task2];  
-}
-runTasksInParallel().then((results) => {
-    console.log("Parallel Tasks Results:", results);
-});
+// const runTasksInParallel = async () => {
+//     const [task1, task2] = await Promise.all([
+//         simulateTask("Parallel Task 1", 1000),
+//         simulateTask("Parallel Task 2", 500)
+//     ]);
+//     return [task1, task2];  
+// }
+// runTasksInParallel().then((results) => {
+//     console.log("Parallel Tasks Results:", results);
+// });
 // 16. Call multiple async functions in parallel using Promise.all().
+
+// const runTasksInParallel = async () => {
+//     const [task1, task2] = await Promise.all([
+//         simulateTask("Parallel Task 1", 1000),
+//         simulateTask("Parallel Task 2", 500)
+//     ]);
+//     return [task1, task2];  
+// }
+// runTasksInParallel().then((results) => {
+//     console.log("Parallel Tasks Results:", results);
+// });
+
 // 17. Use for await...of to iterate over an array of Promises.
+
+
+const promiseArray = [
+    simulateTask("For Await Task 1", 1000),
+    simulateTask("For Await Task 2", 500),
+    simulateTask("For Await Task 3", 1500)
+];
+
+const runForAwaitOf = async () => {
+    for await (const result of promiseArray) {
+        console.log("for await...of result:", result);
+    }
+};
+
+runForAwaitOf();
+
 // 18. Write an async function fetchUser(id) that simulates an API call (resolves a user
 // object after 1 second).
 // 19. Create an async function fetchUsers(ids: number[]) that calls fetchUser for each
