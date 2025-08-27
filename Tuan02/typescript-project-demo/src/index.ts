@@ -121,29 +121,40 @@ const readAndFilterArray = new Promise<number[]>((resolve) => {
 
 // 13. Handle errors using try/catch with async/await.
 
-const runWithErrorHandling = async () => {
-    try {
-        const result = await simulateTask("Error Handling Task", 2000);
-        console.log(result);
-    } catch (error) {
-        console.error("Error occurred:", error);
-    }
-};
-runWithErrorHandling();
+// const runWithErrorHandling = async () => {
+//     try {
+//         const result = await simulateTask("Error Handling Task", 2000);
+//         console.log(result);
+//     } catch (error) {
+//         console.error("Error occurred:", error);
+//     }
+// };
+// runWithErrorHandling();
 
 
 // 14. Write an async function that takes a number, waits 1 second, and returns the number × 3.
 
 
-const multiplyAfterDelay = async (num: number): Promise<number> => {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve(num * 3), 1000);
-    });
-};
-multiplyAfterDelay(5).then((result) => console.log("Result after delay:", result));
+// const multiplyAfterDelay = async (num: number): Promise<number> => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => resolve(num * 3), 1000);
+//     });
+// };
+// multiplyAfterDelay(5).then((result) => console.log("Result after delay:", result));
 
 
 // 15. Call multiple async functions sequentially using await.
+
+const runTasksInParallel = async () => {
+    const [task1, task2] = await Promise.all([
+        simulateTask("Parallel Task 1", 1000),
+        simulateTask("Parallel Task 2", 500)
+    ]);
+    return [task1, task2];  
+}
+runTasksInParallel().then((results) => {
+    console.log("Parallel Tasks Results:", results);
+});
 // 16. Call multiple async functions in parallel using Promise.all().
 // 17. Use for await...of to iterate over an array of Promises.
 // 18. Write an async function fetchUser(id) that simulates an API call (resolves a user
