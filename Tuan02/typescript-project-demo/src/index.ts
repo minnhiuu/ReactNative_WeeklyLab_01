@@ -117,9 +117,21 @@ const readAndFilterArray = new Promise<number[]>((resolve) => {
 // runHelloAsync();
 // 12. Write an async function that calls simulateTask(2000) and logs the result.
 
-simulateTask("Example Task", 2000).then((result) => console.log(result));
+// simulateTask("Example Task", 2000).then((result) => console.log(result));
 
 // 13. Handle errors using try/catch with async/await.
+
+const runWithErrorHandling = async () => {
+    try {
+        const result = await simulateTask("Error Handling Task", 2000);
+        console.log(result);
+    } catch (error) {
+        console.error("Error occurred:", error);
+    }
+};
+runWithErrorHandling();
+
+
 // 14. Write an async function that takes a number, waits 1 second, and returns the number × 3.
 // 15. Call multiple async functions sequentially using await.
 // 16. Call multiple async functions in parallel using Promise.all().
