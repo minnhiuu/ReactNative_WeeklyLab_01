@@ -58,10 +58,21 @@ const simulateTaskSimple = (time: number): Promise<string> => {
     setTimeout(() => resolve("Task done"), time); 
   });
 }   
-simulateTaskSimple(1500).then((message) => console.log(message));
+// simulateTaskSimple(1500).then((message) => console.log(message));
 
 
 // 6. Use Promise.all() to run 3 simulated Promises in parallel and print the result.
+
+Promise.all([
+  simulateTaskSimple(1000),
+    simulateTaskSimple(2000),
+    simulateTaskSimple(1500)
+]).then((results) => {  
+    console.log("All tasks completed:", results);
+    }
+);
+
+
 // 7. Use Promise.race() to return whichever Promise resolves first.
 // 8. Create a Promise chain: square the number 2, then double it, then add 5.
 // 9. Write a Promise that reads an array after 1 second and filters even numbers.
