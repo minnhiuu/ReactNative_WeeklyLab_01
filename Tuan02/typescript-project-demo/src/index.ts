@@ -236,3 +236,35 @@ const fetchUserWithTimeout = async (id: number, timeout: number = 2000): Promise
 fetchUserWithTimeout(1)
     .then((user) => console.log("Fetched user with timeout:", user))
     .catch((error) => console.error("Error fetching user with timeout:", error.message));
+
+// 21. Use fetch to get data from a public API (e.g.,
+// https://jsonplaceholder.typicode.com/todos/1).
+
+const fetchTodo = async (id: number): Promise<any> => {
+    try {
+        const respone = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        if (!respone.ok) {
+            throw new Error(`HTTP error! status: ${respone.status}`);
+        }
+        const todo = await respone.json();
+        return todo;
+    } catch (error) {
+        console.error("Error fetching todo:", error);
+    }
+}
+
+// 22. Call the API multiple times and log the results.
+// 23. Write an async function that fetches a list of todos and filters out those that are not
+// completed.
+// 24. Write an async function postData() that sends a POST request to a test API.
+// 25. Create a function downloadFile that simulates downloading a file in 3 seconds and logs
+// when done.
+// 26. Use async/await with setTimeout to simulate a 5-second wait.
+
+// 27. Write a function fetchWithRetry(url, retries) that retries up to retries times if
+// the API call fails.
+// 28. Write an async function batchProcess() that processes 5 async tasks at once (use
+// Promise.all).
+// 29. Write an async function queueProcess() that processes tasks sequentially in a queue.
+// 30. Use async/await + Promise.allSettled() to handle multiple API calls and display their
+// success/failure status.
