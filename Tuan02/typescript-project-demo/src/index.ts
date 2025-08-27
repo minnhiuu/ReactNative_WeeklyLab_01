@@ -103,3 +103,8 @@ readAndFilterArray
 
 // 10. Use .finally() to log "Done" when a Promise finishes (success or failure).
 
+readAndFilterArray
+    .then((arr) => arr.filter((num) => num % 2 === 0))
+    .then((evenNumbers) => console.log("Even numbers:", evenNumbers))
+    .finally(() => console.log("Done"));
+
