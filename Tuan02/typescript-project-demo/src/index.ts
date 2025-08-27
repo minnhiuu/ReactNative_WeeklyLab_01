@@ -171,22 +171,38 @@ const readAndFilterArray = new Promise<number[]>((resolve) => {
 // 17. Use for await...of to iterate over an array of Promises.
 
 
-const promiseArray = [
-    simulateTask("For Await Task 1", 1000),
-    simulateTask("For Await Task 2", 500),
-    simulateTask("For Await Task 3", 1500)
-];
+// const promiseArray = [
+//     simulateTask("For Await Task 1", 1000),
+//     simulateTask("For Await Task 2", 500),
+//     simulateTask("For Await Task 3", 1500)
+// ];
 
-const runForAwaitOf = async () => {
-    for await (const result of promiseArray) {
-        console.log("for await...of result:", result);
-    }
-};
+// const runForAwaitOf = async () => {
+//     for await (const result of promiseArray) {
+//         console.log("for await...of result:", result);
+//     }
+// };
 
-runForAwaitOf();
+// runForAwaitOf();
 
 // 18. Write an async function fetchUser(id) that simulates an API call (resolves a user
 // object after 1 second).
+
+type User = {
+    id: number;
+    name: string;
+};
+
+const fetchUser = async (id: number): Promise<User> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ id, name: `User ${id}` });
+        }, 1000);
+    });
+};
+
+fetchUser(1).then((user) => console.log("Fetched user:", user));
+
 // 19. Create an async function fetchUsers(ids: number[]) that calls fetchUser for each
 // ID.
 // 20. Add a timeout: if the API call takes more than 2 seconds, throw an error.
